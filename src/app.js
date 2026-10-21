@@ -53,6 +53,13 @@ const app = express();
 //const {adminAuth, userAuth}=require("./middlewares/auth.js");
 //app.use("/admin",adminAuth);
 
+
+app.use("/",(err,req,res,next)=>{
+     if(err){
+        res.status(500).send("Something went wrong")
+     }
+})
+
 app.get("/admin/getAllData",(req,res)=>{
    res.send("All data sent")    
 })

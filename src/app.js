@@ -29,27 +29,38 @@ const app = express();
 // );
 
 
-app.get("/user",(req,res,next)=>{
-    console.log("handling the route 1 user !!")
-    //res.send("Fisrt Response")
-    next();
-},
-(req,res,next)=>{
-    console.log("handling the route 2 user !!")
-    //res.send("2nd Response");
-    next();
- },
- (req,res,next)=>{
-    console.log("handling the route 3 user !!")
-    //res.send("3rd Response");
-    next();
- },
-  (req,res)=>{
-    console.log("handling the route 4th user !!")
-    res.send("4th Response");
-    //next();
- }
-);
+// app.get("/user",(req,res,next)=>{
+//     console.log("handling the route 1 user !!")
+//     //res.send("Fisrt Response")
+//     next();
+// },
+// (req,res,next)=>{
+//     console.log("handling the route 2 user !!")
+//     //res.send("2nd Response");
+//     next();
+//  },
+//  (req,res,next)=>{
+//     console.log("handling the route 3 user !!")
+//     //res.send("3rd Response");
+//     next();
+//  },
+//   (req,res)=>{
+//     console.log("handling the route 4th user !!")
+//     res.send("4th Response");
+//     //next();
+//  }
+// );
+const {adminAuth, userAuth}=require("./middlewares/auth.js");
+app.use("/admin",adminAuth);
+
+app.get("/admin/getAllData",(req,res)=>{
+   res.send("All data sent")    
+})
+
+app.get("/user/data",userAuth,(req,res)=>{
+   res.send("User data sent")    
+})
+
 
 
 

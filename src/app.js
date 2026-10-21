@@ -50,14 +50,14 @@ const app = express();
 //     //next();
 //  }
 // );
-const {adminAuth, userAuth}=require("./middlewares/auth.js");
-app.use("/admin",adminAuth);
+//const {adminAuth, userAuth}=require("./middlewares/auth.js");
+//app.use("/admin",adminAuth);
 
 app.get("/admin/getAllData",(req,res)=>{
    res.send("All data sent")    
 })
 
-app.get("/user/data",userAuth,(req,res)=>{
+app.get("/user/data",(req,res)=>{
    res.send("User data sent")    
 })
 

@@ -1,90 +1,34 @@
 const express = require('express');
+const connectDB=require("./config/database")
 const app = express();
+const User=require("./models/user")
 
-// app.use((req, res)=>{
-//     res.send("Hello from server");
-// });
-
-// app.get("/user/:userId",(req,res)=>{
-//     // console.log(req.query);
-//     console.log(req.params);
-//     res.send({"firstName":"John","lastName":"Doe"})
-// })
-// app.post("/user",(req,res)=>{
-//     res.send("saved user");
-// });
-// app.delete("/user",(req,res)=>{
-//     res.send("deleted user");
-// });
-
-// app.get("/user",(req,res,next)=>{
-//     console.log("handling the route 1 user !!")
-//     next();
-//     res.send("Fisrt Response")
-// },
-// (req,res)=>{
-//     console.log("handling the route 2 user !!")
-//     res.send("2nd Response");
-//  }
-// );
-
-
-// app.get("/user",(req,res,next)=>{
-//     console.log("handling the route 1 user !!")
-//     //res.send("Fisrt Response")
-//     next();
-// },
-// (req,res,next)=>{
-//     console.log("handling the route 2 user !!")
-//     //res.send("2nd Response");
-//     next();
-//  },
-//  (req,res,next)=>{
-//     console.log("handling the route 3 user !!")
-//     //res.send("3rd Response");
-//     next();
-//  },
-//   (req,res)=>{
-//     console.log("handling the route 4th user !!")
-//     res.send("4th Response");
-//     //next();
-//  }
-// );
-//const {adminAuth, userAuth}=require("./middlewares/auth.js");
-//app.use("/admin",adminAuth);
-
-
-app.use("/",(err,req,res,next)=>{
-     if(err){
-        res.status(500).send("Something went wrong")
-     }
-})
-
-app.get("/admin/getAllData",(req,res)=>{
-   res.send("All data sent")    
-})
-
-app.get("/user/data",(req,res)=>{
-   res.send("User data sent")    
+app.post("/signup",async (req,res)=>{
+    //Creating the new instance of the user model
+    const user=new User({
+        firstName:"Shivi",
+        lastName:"Chauhan",
+        emailId:"chauhanshivi887@gmail.com",
+        password:"shivi@123",
+        age:21
+    });
+    try{
+         await user.save();
+       res.send("User Added Succesfully")
+    }catch(err){
+        res.status(400).send("Error saving the user"+err.message);
+    }
+   
 })
 
 
 
-
-
-
-
-
-
-
-
-// app.get("/ab+c",(req,res)=>{
-//     res.send({"firstName":"John","lastName":"Doe"})
-// })
-
-// app.use("/hello",(req,res)=>{
-//     res.send("Hello from hello route");
-// });
+connectDB()
+  .then(()=>{
+   console.log("database connection established")
+ }).catch((err)=>{
+    console.error("database cannot be connected!!");
+ })
 
 app.listen(3000,()=>{
     console.log('Server is running on port 3000');

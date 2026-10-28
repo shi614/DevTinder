@@ -1,0 +1,11 @@
+$kind: http-request
+url: http://localhost:3000/user
+method: GET
+body:
+  type: json
+  content: "{\r
+
+    \    \"emailId\":\"chauhanshivi887@gmail.com\"\r
+
+    }"
+order: 12000

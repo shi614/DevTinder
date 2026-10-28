@@ -1,0 +1,8 @@
+$kind: http-request
+name: /user/connections
+url: http://localhost:3000/user/connections
+method: GET
+body:
+  type: json
+  content: ""
+order: 7000

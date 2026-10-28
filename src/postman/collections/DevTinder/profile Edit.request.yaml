@@ -1,0 +1,13 @@
+$kind: http-request
+url: http://localhost:3000/profile/edit
+method: PATCH
+body:
+  type: json
+  content: "{\r
+
+    \    \"firstName\":\"mssss\",\r
+
+    \    \"lastName\":\"dhoniii\"\r
+
+    }"
+order: 11000

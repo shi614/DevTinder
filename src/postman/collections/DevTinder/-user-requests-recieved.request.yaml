@@ -1,0 +1,8 @@
+$kind: http-request
+name: /user/requests/recieved
+url: http://localhost:3000/user/requests/recieved
+method: GET
+body:
+  type: json
+  content: ""
+order: 6000

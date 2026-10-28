@@ -1,0 +1,7 @@
+workspace:
+  id: e4bb572c-dbf5-4b25-81f9-0667b5d07dc9
+cloudResources:
+  globals:
+    ../postman/globals/workspace.globals.yaml: d5f2c0bc-0d8f-4f6f-8209-e2c803255439
+  collections:
+    ../postman/collections/DevTinder: 49469366-3425f7bd-5137-48f7-a45c-1860ebce696c

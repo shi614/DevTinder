@@ -1,0 +1,20 @@
+$kind: http-request
+name: /request/review/accepted/:toUserId Copy
+url: http://localhost:3000/request/review/accepted/6addbeff70566280bcdb2230
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"firstName\":\"Rohit\",\r
+
+    \    \"lastName\":\"Sharma\",\r
+
+    \    \"emailId\":\"rohit@gmail.com\",\r
+
+    \    \"password\":\"rohit@123\"\r
+
+    \r
+
+    }"
+order: 5000
